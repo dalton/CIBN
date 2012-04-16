@@ -1,0 +1,49 @@
+// Bayesian network 
+network "InternalNetwork" { //7 variables and 7 probability distributions
+}
+variable  "a" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "observed true" ;
+	property "position = (60, 181)" ;
+}
+variable  "b" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "position = (154, 181)" ;
+}
+variable  "c" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "observed true" ;
+	property "position = (244, 175)" ;
+}
+variable  "d" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "observed true" ;
+	property "position = (338, 175)" ;
+}
+variable  "e" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "observed true" ;
+	property "position = (441, 178)" ;
+}
+variable  "f" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "position = (331, 76)" ;
+}
+variable  "g" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "position = (215, 286)" ;
+}
+probability (  "a"  "g" ) {
+}
+probability (  "b"  "a" ) {
+}
+probability (  "c"  "b"  "f" ) {
+}
+probability (  "d"  "c"  "g" ) {
+}
+probability (  "e"  "d"  "f" ) {
+}
+probability (  "f" ) {
+}
+probability (  "g" ) {
+}

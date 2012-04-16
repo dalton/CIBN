@@ -1,0 +1,63 @@
+// Bayesian network 
+network "InternalNetwork" { //9 variables and 9 probability distributions
+}
+variable  "A" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "observed true" ;
+	property "position = (226, 55)" ;
+}
+variable  "B" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "observed true" ;
+	property "position = (154, 128)" ;
+}
+variable  "X" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "observed true" ;
+	property "position = (84, 204)" ;
+}
+variable  "W" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "observed true" ;
+	property "position = (226, 203)" ;
+}
+variable  "Y" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "observed true" ;
+	property "position = (349, 204)" ;
+}
+variable  "Z" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "observed true" ;
+	property "position = (239, 128)" ;
+}
+variable  "U2" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "position = (349, 93)" ;
+}
+variable  "U1" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "position = (62, 80)" ;
+}
+variable  "U3" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "position = (153, 273)" ;
+}
+probability (  "A"  "U1"  "U2" ) {
+}
+probability (  "B"  "A" ) {
+}
+probability (  "X"  "B"  "U1"  "U3" ) {
+}
+probability (  "W"  "X"  "U3" ) {
+}
+probability (  "Y"  "Z"  "W"  "U2" ) {
+}
+probability (  "Z"  "X" ) {
+}
+probability (  "U2" ) {
+}
+probability (  "U1" ) {
+}
+probability (  "U3" ) {
+}

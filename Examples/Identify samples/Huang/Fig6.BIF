@@ -1,0 +1,66 @@
+// Bayesian network 
+network "InternalNetwork" { //7 variables and 7 probability distributions
+}
+variable  "x" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "observed true" ;
+	property "position = (81, 274)" ;
+}
+variable  "w2" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "observed true" ;
+	property "position = (189, 196)" ;
+}
+variable  "w1" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "observed true" ;
+	property "position = (278, 108)" ;
+}
+variable  "u1" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "position = (112, 90)" ;
+}
+variable  "u2" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "position = (430, 146)" ;
+}
+variable  "z" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "observed true" ;
+	property "position = (411, 294)" ;
+}
+variable  "Y" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "observed true" ;
+	property "position = (590, 295)" ;
+}
+probability (  "x"  "w2"  "u1" ) { //3 variable(s) and 8 values
+	table 
+		 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5;
+}
+probability (  "w2"  "w1" ) { //2 variable(s) and 4 values
+	table 
+		 0.5 0.5 0.5 0.5;
+}
+probability (  "w1"  "u1"  "u2" ) { //3 variable(s) and 8 values
+	table 
+		 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5;
+}
+probability (  "u1" ) { //1 variable(s) and 2 values
+	table 
+		0.5	// p(true | evidence )
+		0.5; 	// p(false | evidence );
+}
+probability (  "u2" ) { //1 variable(s) and 2 values
+	table 
+		0.5	// p(true | evidence )
+		0.5; 	// p(false | evidence );
+}
+probability (  "z"  "x"  "u2" ) { //3 variable(s) and 8 values
+	table 
+		 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5;
+}
+probability (  "Y"  "z" ) { //2 variable(s) and 4 values
+	table 
+		 0.5 0.5 0.5 0.5;
+}

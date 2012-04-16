@@ -1,0 +1,39 @@
+Known problems in JavaBayes
+
+Fabio Cozman
+
+First, note that most implementations of the Java 
+Virtual Machine in some bugs that must be tolerated. 
+Some known examples are listed here.
+The Symantec Cafe 1.51 Java virtual machine does not 
+do a good job at sizing and displaying dialogs; in fact sometimes
+it shows two dialogs instead of one (!). 
+Earlier versions of the JVM for SGIs must have a CLASSPATH 
+variable correctly set at all times; otherwise the whole Java 
+interpreter may dump core. 
+In many JVMs (e.g., some of the versions of Netscape's JVM), 
+there is an incompatibility between Java 1.0.2 and Java 1.1.2.
+Classes compiled for Java 1.0.2 may hang Java interpreters
+running 1.1.2; likewise, Java 1.1.2 code does not normally run 
+in a Java 1.0.2 interpreter. 
+It is also hard to keep track of all different situations where
+the applet does not work, but it has been impossible to find
+situations that can be easily duplicated. Sometimes a windows
+does not open, or the system crashes, etc. 
+
+Now, some known bugs that I should correct:
+
+- Too many digits are displayed in the Java 1.2 interpreters,
+as they (correctly) display doubles in full precision. 
+
+- It seems that circles appears somewhat blocky in Java 1.2,
+and the dialogs appear with awful white margins. I do not
+know how to correct that.
+
+- It seems that the interface is not as intuitive as it
+should be, but changing things is kind of hard. The program
+should indicate the file that is being worked on, there should
+be pull down menus with most frequently used options.
+
+
+

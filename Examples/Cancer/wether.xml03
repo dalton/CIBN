@@ -1,0 +1,29 @@
+// Bayesian network 
+network "Cancer" { //4 variables and 4 probability distributions
+}
+variable  "Cloudy" { //2 values
+	type discrete[2] {  "Present"  "Absent" };
+	property "position = (242, 136)" ;
+}
+variable  "Sprinkler" { //2 values
+	type discrete[2] {  "Increased"  "NotIncreased" };
+	property "observed Increased" ;
+	property "position = (126, 221)" ;
+}
+variable  "Rain" { //2 values
+	type discrete[2] {  "Present"  "Absent" };
+	property "observed Present" ;
+	property "position = (368, 216)" ;
+}
+variable  "Wet_Grass" { //2 values
+	type discrete[2] {  "Present"  "Absent" };
+	property "position = (244, 313)" ;
+}
+probability (  "Cloudy" ) {
+}
+probability (  "Sprinkler"  "Cloudy" ) {
+}
+probability (  "Rain"  "Cloudy" ) {
+}
+probability (  "Wet_Grass"  "Rain"  "Sprinkler" ) {
+}

@@ -1,0 +1,165 @@
+// ~->[DNET-1]->~
+
+bnet Asia {
+comment = "From Lauritzen, Steffen L. and David J. Spiegelhalter (1988) \
+	\"Local computations with probabilities on graphical \
+	structures and their application to expert systems\" in J. \
+	Royal Statistics Society B, 50(2), 157-194.";
+whenchanged = 789246327;
+
+visual V1 {
+	defdispform = LABELBOX;
+	nodelabeling = TITLE;
+	nodefont = font {shape= "Bookman"; size= 14;};
+	linkfont = font {shape= "Geneva"; size= 9;};
+	commentfont = font {shape= "Geneva"; size= 10;};
+	windowposn = (150, 68, 840, 478);
+	resolution = 72;
+	drawingbounds = (1104, 730);
+	showpagebreaks = FALSE;
+	usegrid = TRUE;
+	gridspace = (6, 6);
+	};
+
+node VisitAsia {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Visit, No_Visit);
+	parents = ();
+	probs = 
+		// Visit        
+		  (0.01);
+	title = "Visit To Asia";
+	visual V1 {
+		center = (126, 54);
+		height = 8;
+		};
+	};
+
+node Tuberculosis {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Present, Absent);
+	parents = (VisitAsia);
+	probs = 
+		// Present        // VisitAsia 
+		 ((0.05),         // Visit     
+		  (0.01));        // No_Visit  ;
+	title = "Tuberculosis";
+	visual V1 {
+		center = (126, 144);
+		height = 1;
+		};
+	};
+
+node Smoking {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Smoker, NonSmoker);
+	parents = ();
+	probs = 
+		// Smoker       
+		  (0.5);
+	title = "Smoking";
+	visual V1 {
+		center = (438, 54);
+		height = 6;
+		};
+	};
+
+node Cancer {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Present, Absent);
+	parents = (Smoking);
+	probs = 
+		// Present        // Smoking   
+		 ((0.1),          // Smoker    
+		  (0.01));        // NonSmoker ;
+	title = "Lung Cancer";
+	visual V1 {
+		center = (336, 144);
+		height = 5;
+		};
+	};
+
+node TbOrCa {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (True, False);
+	parents = (Tuberculosis, Cancer);
+	probs = 
+		// True            // Tuberculosis Cancer  
+		(((1),             // Present      Present 
+		  (1)),            // Present      Absent  
+		 ((1),             // Absent       Present 
+		  (0)));           // Absent       Absent  ;
+	title = "Tuberculosis\nor Cancer";
+	visual V1 {
+		center = (240, 234);
+		height = 2;
+		link 1 {
+			path = ((139, 156), (213, 213));
+			};
+		};
+	};
+
+node XRay {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Abnormal, Normal);
+	parents = (TbOrCa);
+	probs = 
+		// Abnormal       // TbOrCa 
+		 ((0.98),         // True   
+		  (0.05));        // False  ;
+	title = "XRay Result";
+	visual V1 {
+		center = (138, 318);
+		height = 3;
+		};
+	};
+
+node Bronchitis {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Present, Absent);
+	parents = (Smoking);
+	probs = 
+		// Present        // Smoking   
+		 ((0.6),          // Smoker    
+		  (0.3));         // NonSmoker ;
+	title = "Bronchitis";
+	visual V1 {
+		center = (540, 144);
+		height = 7;
+		};
+	};
+
+node Dyspnea {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Present, Absent);
+	parents = (TbOrCa, Bronchitis);
+	probs = 
+		// Present         // TbOrCa Bronchitis 
+		(((0.9),           // True   Present    
+		  (0.7)),          // True   Absent     
+		 ((0.8),           // False  Present    
+		  (0.1)));         // False  Absent     ;
+	title = "Dyspnea";
+	comment = "Shortness of breath.";
+	visual V1 {
+		center = (372, 318);
+		height = 4;
+		};
+	};
+};

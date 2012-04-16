@@ -1,0 +1,78 @@
+// Bayesian network 
+network "InternalNetwork" { //11 variables and 11 probability distributions
+}
+variable  "X" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "observed true" ;
+	property "T true" ;
+	property "position = (115, 265)" ;
+}
+variable  "A" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "observed true" ;
+	property "C true" ;
+	property "position = (208, 264)" ;
+}
+variable  "B" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "observed true" ;
+	property "position = (288, 265)" ;
+}
+variable  "W" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "observed true" ;
+	property "position = (387, 264)" ;
+}
+variable  "Y" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "observed true" ;
+	property "S true" ;
+	property "position = (479, 263)" ;
+}
+variable  "U3" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "position = (177, 201)" ;
+}
+variable  "U4" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "position = (399, 192)" ;
+}
+variable  "U1" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "position = (212, 91)" ;
+}
+variable  "U5" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "position = (251, 319)" ;
+}
+variable  "Z" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "observed true" ;
+	property "position = (300, 417)" ;
+}
+variable  "U2" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "position = (375, 88)" ;
+}
+probability (  "X"  "U3"  "U5"  "U1" ) {
+}
+probability (  "A"  "X"  "U3" ) {
+}
+probability (  "B"  "A" ) {
+}
+probability (  "W"  "B"  "U4"  "U5" ) {
+}
+probability (  "Y"  "W"  "U4"  "Z"  "U2" ) {
+}
+probability (  "U3" ) {
+}
+probability (  "U4" ) {
+}
+probability (  "U1" ) {
+}
+probability (  "U5" ) {
+}
+probability (  "Z"  "X" ) {
+}
+probability (  "U2"  "U1" ) {
+}

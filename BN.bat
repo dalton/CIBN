@@ -1,0 +1,1 @@
+java -classpath ./Classes BayesianNetworks.JavaBayes

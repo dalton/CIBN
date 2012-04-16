@@ -1,0 +1,75 @@
+// Bayesian network 
+network "InternalNetwork" { //8 variables and 8 probability distributions
+}
+variable  "U2" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "position = (49, 243)" ;
+}
+variable  "X1" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "observed true" ;
+	property "position = (154, 171)" ;
+}
+variable  "X2" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "observed true" ;
+	property "position = (150, 299)" ;
+}
+variable  "Z1" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "observed true" ;
+	property "position = (318, 181)" ;
+}
+variable  "Z2" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "observed true" ;
+	property "position = (311, 274)" ;
+}
+variable  "Y" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "observed true" ;
+	property "position = (460, 227)" ;
+}
+variable  "U1" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "position = (355, 56)" ;
+}
+variable  "U3" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "position = (346, 379)" ;
+}
+probability (  "U2" ) { //1 variable(s) and 2 values
+	table 
+		0.5	// p(true | evidence )
+		0.5; 	// p(false | evidence );
+}
+probability (  "X1"  "U2"  "U1" ) { //3 variable(s) and 8 values
+	table 
+		 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5;
+}
+probability (  "X2"  "U2"  "Z1"  "U3" ) { //4 variable(s) and 16 values
+	table 
+		 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5;
+}
+probability (  "Z1"  "X1" ) { //2 variable(s) and 4 values
+	table 
+		 0.5 0.5 0.5 0.5;
+}
+probability (  "Z2"  "X2"  "X1" ) { //3 variable(s) and 8 values
+	table 
+		 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5;
+}
+probability (  "Y"  "Z1"  "Z2"  "U3"  "U1" ) { //5 variable(s) and 32 values
+	table 
+		 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5;
+}
+probability (  "U1" ) { //1 variable(s) and 2 values
+	table 
+		0.5	// p(true | evidence )
+		0.5; 	// p(false | evidence );
+}
+probability (  "U3" ) { //1 variable(s) and 2 values
+	table 
+		0.5	// p(true | evidence )
+		0.5; 	// p(false | evidence );
+}

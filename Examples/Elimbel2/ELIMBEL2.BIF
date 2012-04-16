@@ -1,0 +1,76 @@
+// Bayesian Network in the Interchange Format
+// Produced by BayesianNetworks package in JavaBayes
+// Output created Sun Nov 02 18:11:14 GMT+00:00 1997
+// Bayesian network 
+network "Elimbel2" { //10 variables and 10 probability distributions
+}
+variable  "h" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "position = (160, 103)" ;
+}
+variable  "y" { //3 values
+	type discrete[3] {  "good"  "bad"  "ugly" };
+	property "position = (305, 101)" ;
+}
+variable  "x" { //3 values
+	type discrete[3] {  "good"  "bad"  "ugly" };
+	property "position = (486, 102)" ;
+}
+variable  "da" { //3 values
+	type discrete[3] {  "good"  "bad"  "ugly" };
+	property "position = (240, 274)" ;
+}
+variable  "ob" { //3 values
+	type discrete[3] {  "good"  "bad"  "ugly" };
+	property "position = (82, 170)" ;
+}
+variable  "db" { //3 values
+	type discrete[3] {  "good"  "bad"  "ugly" };
+	property "position = (240, 170)" ;
+}
+variable  "oa" { //3 values
+	type discrete[3] {  "good"  "bad"  "ugly" };
+	property "position = (487, 181)" ;
+}
+variable  "sb" { //3 values
+	type discrete[3] {  "good"  "bad"  "ugly" };
+	property "position = (181, 348)" ;
+}
+variable  "sa" { //3 values
+	type discrete[3] {  "good"  "bad"  "ugly" };
+	property "position = (389, 279)" ;
+}
+variable  "g" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "position = (309, 463)" ;
+}
+probability (  "h" ) { //1 variable(s) and 2 values
+	table 0.5 0.5 ;
+}
+probability (  "y" ) { //1 variable(s) and 3 values
+	table 0.9 0.09 0.01 ;
+}
+probability (  "x" ) { //1 variable(s) and 3 values
+	table 0.92 0.075 0.0050 ;
+}
+probability (  "da" ) { //1 variable(s) and 3 values
+	table 0.25 0.3 0.45 ;
+}
+probability (  "ob"  "h" ) { //2 variable(s) and 6 values
+	table 0.5 0.2 0.3 0.2 0.2 0.6 ;
+}
+probability (  "db"  "h"  "y" ) { //3 variable(s) and 18 values
+	table 0.5 0.45 0.3 0.25 0.04 0.02 0.35 0.3 0.2 0.15 0.03 0.015 0.15 0.25 0.5 0.6 0.93 0.965 ;
+}
+probability (  "oa"  "x" ) { //2 variable(s) and 9 values
+	table 0.8 0.5 0.15 0.15 0.3 0.15 0.05 0.2 0.7 ;
+}
+probability (  "sb"  "da"  "ob" ) { //3 variable(s) and 27 values
+	table 0.3 0.55 0.78 0.1 0.35 0.45 0.03 0.12 0.32 0.5 0.3 0.18 0.3 0.5 0.35 0.11 0.22 0.4 0.2 0.15 0.04 0.6 0.15 0.2 0.86 0.66 0.28 ;
+}
+probability (  "sa"  "db"  "oa" ) { //3 variable(s) and 27 values
+	table 0.4 0.75 0.88 0.17 0.42 0.52 0.07 0.17 0.38 0.48 0.2 0.07 0.37 0.47 0.34 0.19 0.3 0.38 0.12 0.05 0.05 0.46 0.11 0.14 0.74 0.53 0.24 ;
+}
+probability (  "g"  "sb"  "sa" ) { //3 variable(s) and 18 values
+	table 0.5 0.35 0.15 0.35 0.5 0.35 0.15 0.35 0.5 0.5 0.65 0.85 0.65 0.5 0.65 0.85 0.65 0.5 ;
+}

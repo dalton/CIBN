@@ -1,0 +1,56 @@
+// Bayesian network 
+network "InternalNetwork" { //8 variables and 8 probability distributions
+}
+variable  "V1" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "observed true" ;
+	property "position = (75, 165)" ;
+}
+variable  "V2" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "observed true" ;
+	property "position = (166, 165)" ;
+}
+variable  "V3" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "observed true" ;
+	property "position = (253, 165)" ;
+}
+variable  "V4" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "observed true" ;
+	property "position = (340, 166)" ;
+}
+variable  "V5" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "observed true" ;
+	property "position = (437, 167)" ;
+}
+variable  "U2" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "position = (246, 102)" ;
+}
+variable  "U3" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "position = (286, 34)" ;
+}
+variable  "h" { //2 values
+	type discrete[2] {  "true"  "false" };
+	property "position = (182, 246)" ;
+}
+probability (  "V1"  "U3"  "h" ) {
+}
+probability (  "V2"  "V1"  "U2" ) {
+}
+probability (  "V3"  "V2"  "h" ) {
+}
+probability (  "V4"  "V3"  "U2" ) {
+}
+probability (  "V5"  "V4"  "U3" ) {
+}
+probability (  "U2" ) {
+}
+probability (  "U3" ) {
+}
+probability (  "h" ) {
+}

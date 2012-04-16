@@ -1,0 +1,75 @@
+
+
+Loading D:\JavaBayes-0.346\Examples\r305_test.bif
+	
+
+File loaded.
+
+
+
+To query on a particular node, click on it.
+
+	
+Verma_Type_Action.
+
+
+
+
+
+Q[V1,] = P(V1)
+
+Q[V1,] does not give any constraints.
+
+
+
+Q[V2,] = P(V2|V1)
+
+Q[V2,] does not give any constraints.
+
+
+
+Q[V1,V3,] = P(V1)P(V3|V1, V2)
+
+D = {V1,}
+
+Q[V3,] = ¡Æ(V1)P(V1)P(V3|V1, V2)
+
+Q[V3,] does not give any constraints.
+
+
+
+Q[V2,V4,] = P(V2|V1)P(V4|V1, V2, V3, V4)
+
+D = {V2,}
+
+Q[V4,] = ¡Æ(V2)P(V2|V1)P(V4|V1, V2, V3, V4)
+
+It implies a constraint on P(v) that the right hand side is independent of V1,.
+
+
+
+Q[V1,V3,V5,] = P(V1)P(V3|V1, V2)P(V5|V1, V2, V3, V4)
+
+D = {V1,}
+
+Q[V3,V5,] = ¡Æ(V1)P(V1)P(V3|V1, V2)P(V5|V1, V2, V3, V4)
+
+Q[V5,]
+It implies a constraint on P(v) that the right hand side is independent of V2,V3,.
+
+
+
+D = {V3,}
+
+Q[V1,V5,] = ¡Æ(V3)P(V1)P(V3|V1, V2)P(V5|V1, V2, V3, V4)
+
+only one c-component. can not continue.
+
+
+
+D = {V1,V3,}
+
+Q[V5,] = ¡Æ(V1,V3)P(V1)P(V3|V1, V2)P(V5|V1, V2, V3, V4)
+
+It implies a constraint on P(v) that the right hand side is independent of V2,.
+

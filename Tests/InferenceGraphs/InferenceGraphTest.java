@@ -142,24 +142,43 @@ public class InferenceGraphTest {
         instance = new InferenceGraph(bn);
     }
     
+//    @Test
+//    public void testSTDogProblem() throws FileNotFoundException, IFException{
+//        System.out.println("ST Dog Problem");
+//        STBayesNet bn = new STBayesNet(new java.io.DataInputStream(new java.io.FileInputStream(fixture_file)));
+//        instance = new InferenceGraph(bn);
+//        ProbabilityVariable[] pvs = bn.get_probability_variables();
+//        ProbabilityVariable pv = ((ProbabilityVariable)pvs[0]);
+//        pv.set_isT_value(pv.get_value(0));
+//        System.out.println(pv.get_name());
+//        pv.set_isT_value(pv.get_value(0));
+//        pv = ((ProbabilityVariable)pvs[1]);
+//        System.out.println(pv.get_name());
+//        pv.set_isS_value(pv.get_value(0));
+//        
+//        System.out.println("====================================");
+//        
+//        instance.print_identifiability_analysis(System.out);
+//        
+//    }
+    
     @Test
-    public void testSTDogProblem() throws FileNotFoundException, IFException{
+    public void testAddLightOnToS() throws FileNotFoundException, IFException{
         System.out.println("ST Dog Problem");
         STBayesNet bn = new STBayesNet(new java.io.DataInputStream(new java.io.FileInputStream(fixture_file)));
         instance = new InferenceGraph(bn);
         ProbabilityVariable[] pvs = bn.get_probability_variables();
-        ProbabilityVariable pv = ((ProbabilityVariable)pvs[0]);
-        pv.set_isT_value(pv.get_value(0));
-        System.out.println(pv.get_name());
-        pv.set_isT_value(pv.get_value(0));
-        pv = ((ProbabilityVariable)pvs[1]);
-        System.out.println(pv.get_name());
-        pv.set_isS_value(pv.get_value(0));
-        
-        System.out.println("====================================");
-        
+	int idx = bn.index_of_variable("light_on");
+	System.out.println("s_index = "+idx);
+        ProbabilityVariable pv = ((ProbabilityVariable)pvs[idx]);
+	System.out.println("pv = "+pv.get_value(0));
+	assertEquals(0, bn.number_s());
+        pv.set_isS_value("true");
+	assertEquals(1, bn.number_s());
+	assertEquals(pv.get_name(), bn.get_probability_variables_s()[0].get_name());
         instance.print_identifiability_analysis(System.out);
         
+	assertEquals(0, bn.number_t());
     }
     
     
